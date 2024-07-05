@@ -1,4 +1,4 @@
-# Jenkins Configuration On Azure VM
+# Jenkins Configuration On Azure   Linux Ubuntu VM
 
 ## First, give permission to your key file.
 
