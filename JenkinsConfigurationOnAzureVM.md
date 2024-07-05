@@ -1,4 +1,4 @@
-# Jenkins_CICD_Deploy_JavaApplication_To_AKS
+# Jenkins Configuration On Azure VM
 
 ## First, give permission to your key file.
 
