@@ -1,1 +1,0 @@
-# Jenkins_CICD_Deploy_JavaApplication_To_AKS
