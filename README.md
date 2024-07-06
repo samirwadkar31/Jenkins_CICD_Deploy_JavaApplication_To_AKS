@@ -1,4 +1,4 @@
-## SpringBoot application deployment to Azure Kubernetes Service Using Jenkins Pipelines.
+## SpringBoot application deployment to Azure Kubernetes Service Using Jenkins Pipelines
 
 #### Step 1: Create Azure VM for Jenkin's Configuration, ACR & AKS
 Azure Ubuntu 20.04:
