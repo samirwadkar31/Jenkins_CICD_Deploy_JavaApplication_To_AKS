@@ -8,7 +8,7 @@ pipeline {
     }
     
     environment {
-        imagename = "myspringbootapp"
+        imagename = "myspringbootapplication"
         imagetag = "latest"
         dockerimage =""
         credentialsId ="ACR"
