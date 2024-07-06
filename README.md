@@ -13,3 +13,8 @@
 3. Lastly, we need to pull the image from ACR & deploy it to AKS using manifest.yaml file. To deploy manifest file on AKS and to perform kubectl commands we need permission/authentication. Kubeconfig can help us to achieve that. Add kubeconfig context to your Ubuntu VM. cat kube.config file, copy the entire key/token and paste it into txt file. Further, we can use this kube.config txt file as a secret file in jenkins credentails.
 
 ![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/937cb48d-eac4-42df-a164-b68332c137f2)
+
+#### Step 6: Create Jenkins Pipelines
+Go to New Item -> Select Pipeline-> Enter name of your pipeline->Ok
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/34ce456d-efc6-4d54-bcca-9e6cb17864cb)
