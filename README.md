@@ -1,12 +1,25 @@
 ## SpringBoot application deployment to Azure Kubernetes Service Using Jenkins Pipelines.
 
-#### Step 1: [Jenkins Configuration on Azure VM Ubuntu 20.04](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/blob/3850ca2e77779476ae04947944321f862c6f55bf/DeploymentGuide/Jenkins-Configuration-On-Azure-Ubuntu-VM.md)
-#### Step 2: [Install Docker, Kubectl & Azure-CLI On Azure VM Ubuntu 20.04](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/blob/cde8fff27763b0a287a6167aa2bf313303460bd2/DeploymentGuide/Install-Docker-Kubectl-AzureCLI-On-VM.md)
-#### Step 3: [Add Jenkins User To Docker Group](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/blob/cde8fff27763b0a287a6167aa2bf313303460bd2/DeploymentGuide/Add-Jenkins-User-To-Docker-Group.md)
+#### Step 1: Create Azure VM for Jenkin's Configuration, ACR & AKS
+Azure Ubuntu 20.04:
 
-#### Step 4: [Install Required Jenkins Plugins ](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/blob/cde8fff27763b0a287a6167aa2bf313303460bd2/DeploymentGuide/Install-Jenkins-Plugins.md)
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/ecd0c56f-aa8b-4292-938c-dc07518654c5)
 
-#### Step 5: Create Jenkins Credentials
+ACR:
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/fdbe24ec-285d-429c-b394-aecb6c3b2b18)
+
+AKS:
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/8fb0c510-6aea-4369-8caa-c25d71687a2d)
+
+#### Step 2: [Jenkins Configuration on Azure VM Ubuntu 20.04](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/blob/3850ca2e77779476ae04947944321f862c6f55bf/DeploymentGuide/Jenkins-Configuration-On-Azure-Ubuntu-VM.md)
+#### Step 3: [Install Docker, Kubectl & Azure-CLI On Azure VM Ubuntu 20.04](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/blob/cde8fff27763b0a287a6167aa2bf313303460bd2/DeploymentGuide/Install-Docker-Kubectl-AzureCLI-On-VM.md)
+#### Step 4: [Add Jenkins User To Docker Group](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/blob/cde8fff27763b0a287a6167aa2bf313303460bd2/DeploymentGuide/Add-Jenkins-User-To-Docker-Group.md)
+
+#### Step 5: [Install Required Jenkins Plugins ](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/blob/cde8fff27763b0a287a6167aa2bf313303460bd2/DeploymentGuide/Install-Jenkins-Plugins.md)
+
+#### Step 6: Create Jenkins Credentials
 
 1. We need to connect with our GitHub Repo, where our source code is present. To check out the SCM in jenkins we need GitHub PAT token for the authentication in case of private repository. Create PAT token on github and add it in jenkins credentials.
 2. We need to push the docker image to private container registry on Azure (ACR). For this authentication, we need to enable admin user in ACR and create the username & password credentails in jenkins.
