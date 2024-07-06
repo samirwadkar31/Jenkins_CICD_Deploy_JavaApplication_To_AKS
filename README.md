@@ -1,5 +1,7 @@
 ## SpringBoot application deployment to Azure Kubernetes Service Using Jenkins Pipelines.
 
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/d7925445-b36c-4bff-998a-d21891ee4578)
+
 #### Step 1: Create Azure VM for Jenkin's Configuration, ACR & AKS
 Azure Ubuntu 20.04:
 
@@ -154,6 +156,7 @@ It's deployed, and our pods are running :)
 Let's copy the springboot-app load balancer external ip and test it on the browser,<br>
 Hurray, springboot-app is successfully deployed on AKS.
 
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/d633f3e3-ee42-4a78-9c53-f85b1d236388)
 
 
 
