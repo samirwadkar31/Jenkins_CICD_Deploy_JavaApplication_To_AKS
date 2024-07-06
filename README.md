@@ -100,4 +100,47 @@ pipeline {
 }
 
 ```
+Overview: We are using different stages to perform each task.<br> 
+1. Checking out the source code from github SCM<br>
+2. Build the java project using maven to get jar file<br>
+3. Build the docker image
+4. Push the image to ACR
+5. Deploy manifest file to AKS
+
+We can generate these code snippets from pipeline syntax tool.<br>
+When we install the required plugins like docker plugin, docker pipeline plugin, kubeernetes CLI plugin, we get the option to generate code snippets in pipeline syntax tool. Here, is one of the examples,
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/2bffabcb-f9bb-4840-a4aa-fe15ca627982)
+ 
 Click Apply and Save.
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/94acd828-4057-488e-9e09-f4c16a8a162b)
+
+Click On Biuld now:
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/d29b89dc-f3ae-4a25-a359-9691bf8ab3f9)
+
+Build is succeeded,
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/d8ab6107-f003-4524-848d-28811244576b)
+
+Showing end part of the logs,
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/6e1e2b65-0bbb-4101-a03b-3a18a19da5a7)
+
+Let's verify the pushed image on ACR,<br>
+ACR repo contains our latest pushed image :)
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/f946097e-40b9-48b0-8a9c-2881ead08fa3)
+
+Now, let's verify if it has deployed on AKS or not,<br>
+It's deployed, and our pods are running :)
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/683ec2c0-017e-4121-b574-a270a4808b88)
+
+Let's copy the springboot-app load balancer external ip and test it on the browser,<br>
+Hurray, springboot-app is successfully deployed on AKS.
+
+
+
+
