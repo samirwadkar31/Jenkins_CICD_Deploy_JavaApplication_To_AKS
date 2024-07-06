@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-springboot-app
-        image: sameeracr101.azurecr.io/myspringbootapplication:latest
+        image: sameeracr101.azurecr.io/myspringbootapplication:1
         imagePullPolicy: Always
         ports:
         - containerPort: 8085
