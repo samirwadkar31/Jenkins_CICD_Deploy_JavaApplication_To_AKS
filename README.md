@@ -18,3 +18,86 @@
 Go to New Item -> Select Pipeline-> Enter name of your pipeline->Ok
 
 ![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/34ce456d-efc6-4d54-bcca-9e6cb17864cb)
+
+Write your own pipeline script or select the path where your jenkins file is stored from SCM.
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/8c7cc4e7-2aa7-4b31-ba26-12b5db57cd41)
+ 
+Here, I have written the pipelinescript on my own (Have added same script in jenkinsfile for the future reference)
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/6fab5939-1975-4c60-ac33-c4f1a80f6ee7)
+
+Pipeline Script:
+
+```
+pipeline {
+    agent any
+    
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven 'Maven'
+    }
+    
+    environment {
+        imagename = "myspringbootapp"
+        imagetag = "latest"
+        dockerimage =""
+        credentialsId ="ACR"
+        
+    }
+
+    stages {
+        
+        stage('checkout scm') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'PAT', url: 'https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS.git']])
+            }
+        }
+        stage('Build Using Maven') {
+            steps {
+                sh 'mvn -f pom.xml clean install'
+            }
+
+        }
+        
+        stage('Build Docker Image') {
+            steps {
+                script{
+                  dockerimage = docker.build imagename
+                }
+                
+            }
+
+        }
+        
+        stage('Push Docker Image To ACR') {
+            steps {
+                script{
+                    
+                    docker.withRegistry("https://sameeracr101.azurecr.io", credentialsId ) {
+                        dockerimage.push()
+                    }
+                }
+                
+            }
+
+        }
+        
+         stage('DeployToAKS') {
+            steps {
+                script{
+                   withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'KubeConfigAKS', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                        sh 'kubectl apply -f springboot_manifest.yaml'
+                    }
+                }
+                
+            }
+
+        }
+        
+    }
+}
+
+```
+Click Apply and Save.
