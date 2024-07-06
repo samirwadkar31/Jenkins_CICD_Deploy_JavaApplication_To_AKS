@@ -9,7 +9,7 @@ pipeline {
     
     environment {
         imagename = "myspringbootapplication"
-        imagetag = "latest"
+        imagetag = "1"
         dockerimage =""
         credentialsId ="ACR"
         
@@ -32,7 +32,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script{
-                  dockerimage = docker.build imagename
+                  dockerimage = docker.build("${imagename}:${imagetag}")
                 }
                 
             }
