@@ -9,7 +9,7 @@ pipeline {
     
     environment {
         imagename = "myspringbootapplication"
-        imagetag = "1"
+        imagetag = "2"
         dockerimage =""
         credentialsId ="ACR"
         
