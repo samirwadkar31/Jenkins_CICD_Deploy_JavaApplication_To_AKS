@@ -44,6 +44,39 @@ sudo systemctl status docker
 
 Follow this official link to install kubectl on the Ubuntu 20.04 VM: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/ (Install using native package management)
 
+
+```
+sudo apt-get update
+```
+```
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg
+```
+
+Download the public signing key for the Kubernetes package repositories:
+
+```
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+```
+```
+sudo chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+```
+Add the appropriate Kubernetes apt repository:
+
+```
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+```
+```
+sudo chmod 644 /etc/apt/sources.list.d/kubernetes.list
+```
+Update apt package:
+```
+sudo apt-get update
+```
+install kubectl:
+```
+sudo apt-get install -y kubectl
+```
+Add kubeconfig context and validate installation od kubectl by running some kubectl commands.
 ## 3. Install Azure CLI
 
 Follow this official link to install azure-cli on the Ubuntu 20.04 VM: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt (Option 2)
