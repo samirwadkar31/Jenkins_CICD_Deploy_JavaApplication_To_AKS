@@ -44,6 +44,7 @@ sudo systemctl status docker
 
 Follow this official link to install kubectl on the Ubuntu 20.04 VM: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/ (Install using native package management)
 
+Get packages needed for the installation process:
 
 ```
 sudo apt-get update
@@ -80,3 +81,43 @@ Add kubeconfig context and validate installation od kubectl by running some kube
 ## 3. Install Azure CLI
 
 Follow this official link to install azure-cli on the Ubuntu 20.04 VM: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt (Option 2)
+
+```
+sudo apt-get install azure-cli
+```
+
+If above command doesn't work then follow below way,
+
+Get packages needed for the installation process:
+
+```
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release
+```
+
+Download and install the Microsoft signing key:
+
+```
+sudo mkdir -p /etc/apt/keyrings
+curl -sLS https://packages.microsoft.com/keys/microsoft.asc |
+  gpg --dearmor | sudo tee /etc/apt/keyrings/microsoft.gpg > /dev/null
+sudo chmod go+r /etc/apt/keyrings/microsoft.gpg
+```
+Add the Azure CLI software repository:
+
+```
+AZ_DIST=$(lsb_release -cs)
+echo "Types: deb
+URIs: https://packages.microsoft.com/repos/azure-cli/
+Suites: ${AZ_DIST}
+Components: main
+Architectures: $(dpkg --print-architecture)
+Signed-by: /etc/apt/keyrings/microsoft.gpg" | sudo tee /etc/apt/sources.list.d/azure-cli.sources
+```
+
+Update repository information and install the azure-cli package:
+
+```
+sudo apt-get update
+sudo apt-get install azure-cli
+```
