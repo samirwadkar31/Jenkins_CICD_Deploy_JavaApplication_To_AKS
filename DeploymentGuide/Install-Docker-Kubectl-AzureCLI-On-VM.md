@@ -25,7 +25,7 @@ Install latest docker:
 ```
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
-Add Ubuntu system user to docker group:
+Add Ubuntu system user to docker group:(With this, current user can perform docker commands on VM without using prefix 'sudo')
 ```
 sudo usermod -aG docker $USER
 ```
