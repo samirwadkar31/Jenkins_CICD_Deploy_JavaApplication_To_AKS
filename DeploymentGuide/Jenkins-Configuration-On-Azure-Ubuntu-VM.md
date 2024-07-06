@@ -80,3 +80,6 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 And you are done!! :)
 
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/936a48f8-8164-46ce-bf96-e89a55eccb4b)
+
+![image](https://github.com/samirwadkar31/Jenkins_CICD_Deploy_JavaApplication_To_AKS/assets/74359548/644355eb-ffc0-4180-a5ef-a4b77eee2270)
